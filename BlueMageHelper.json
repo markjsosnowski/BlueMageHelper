@@ -7,5 +7,5 @@
   "DalamudApiLevel": 4,
   "Tags": [ "spells", "spellbook", "blu" ],
   "CategoryTags": [ "jobs" ],
-  "IconUrl": ""
+  "IconUrl": "https://raw.githubusercontent.com/markjsosnowski/BlueMageHelper/master/icon.png"
 }
