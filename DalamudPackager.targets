@@ -6,6 +6,7 @@
                 OutputPath="$(OutputPath)"
                 AssemblyName="$(AssemblyName)"
                 MakeZip="true"
+				Exclude="BlueMageHelper.deps.json;BlueMageHelper.pdb;ref/BlueMageHelper.dll"
 				/>
     </Target>
 </Project>
