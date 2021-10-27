@@ -1,0 +1,11 @@
+{
+  "name": "Blue Mage Helper",
+  "Author": "Sl0nderman",
+  "Punchline": "Helps you fill our your Blue Mage Spellbook",
+  "Description": "Adds monster names and coordinates to the \"Where to Learn\" section of your blue mage spellbook.",
+  "RepoUrl": "https://github.com/markjsosnowski/BlueMageHelper",
+  "DalamudApiLevel": 4,
+  "Tags": [ "spells", "spellbook", "blu" ],
+  "CategoryTags": [ "jobs" ],
+  "IconUrl": ""
+}

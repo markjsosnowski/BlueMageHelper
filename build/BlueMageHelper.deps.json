@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "BlueMageHelper/2.1": {
+      "BlueMageHelper/1.0": {
         "dependencies": {
           "DalamudPackager": "2.1.4",
           "Newtonsoft.Json": "13.0.1"
@@ -27,7 +27,7 @@
     }
   },
   "libraries": {
-    "BlueMageHelper/2.1": {
+    "BlueMageHelper/1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
