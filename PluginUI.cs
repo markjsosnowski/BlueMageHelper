@@ -43,13 +43,7 @@ namespace BlueMageHelper
             // it actually makes sense.
             // There are other ways to do this, but it is generally best to keep the number of
             // draw delegates as low as possible.
-
-            DrawMainWindow();
             DrawSettingsWindow();
-        }
-
-        public void DrawMainWindow()
-        {
         }
 
         public void DrawSettingsWindow()

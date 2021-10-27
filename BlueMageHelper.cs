@@ -26,7 +26,6 @@ namespace BlueMageHelper
         //private const string commandName = "/blu";
 
         private DalamudPluginInterface PluginInterface { get; init; }
-        private CommandManager CommandManager { get; init; }
         private Configuration Configuration { get; init; }
         private PluginUI PluginUI { get; init; }
         private Framework Framework { get; init; }
@@ -40,12 +39,10 @@ namespace BlueMageHelper
 
         public BlueMageHelper(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] CommandManager commandManager,
             [RequiredVersion("1.0")] Framework framework,
             [RequiredVersion("1.0")] GameGui gameGui)
         {
             this.PluginInterface = pluginInterface;
-            this.CommandManager = commandManager;
             this.Framework = framework;
             this.GameGui = gameGui;
 
