@@ -1,4 +1,0 @@
-Other sources notes
-
-Sources for spells other than the location listed by default 
-11: Lvl. 28 Clay Golem in North Shroud (x19,y29)\nLvl. 29 Sandstone Golem in Southern Thanalan (x24,y13)"
