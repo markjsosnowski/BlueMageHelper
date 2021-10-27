@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Authors></Authors>
+		<Company></Company>
+		<Version>0.0.0.1</Version>
+		<Description>Blue Mage Helper</Description>
+		<Copyright></Copyright>
+		<PackageProjectUrl>https://github.com/goatcorp/SamplePlugin</PackageProjectUrl>
+	</PropertyGroup>
+
+    <PropertyGroup>
+	    <TargetFramework>net5.0-windows</TargetFramework>
+	    <Nullable>enable</Nullable>
+	    <LangVersion>latest</LangVersion>
+	    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    </PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <OutputPath>build\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+        <PackageReference Include="DalamudPackager" Version="2.1.4" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Dalamud">
+      <HintPath>C:\Users\Mark Sosnowski\AppData\Roaming\XIVLauncher\addon\Hooks\dev\Dalamud.dll</HintPath>
+		<Private>false</Private>
+    </Reference>
+    <Reference Include="FFXIVClientStructs">
+      <HintPath>C:\Users\Mark Sosnowski\AppData\Roaming\XIVLauncher\addon\Hooks\dev\FFXIVClientStructs.dll</HintPath>
+		<Private>false</Private>
+    </Reference>
+    <Reference Include="ImGui.NET">
+      <HintPath>C:\Users\Mark Sosnowski\AppData\Roaming\XIVLauncher\addon\Hooks\dev\ImGui.NET.dll</HintPath>
+		<Private>false</Private>
+    </Reference>
+    <Reference Include="ImGuiScene">
+      <HintPath>C:\Users\Mark Sosnowski\AppData\Roaming\XIVLauncher\addon\Hooks\dev\ImGuiScene.dll</HintPath>
+	  <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
