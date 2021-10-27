@@ -1,5 +1,6 @@
 ﻿using ImGuiNET;
 using System;
+using System.Diagnostics;
 using System.Numerics;
 
 namespace BlueMageHelper
@@ -53,7 +54,7 @@ namespace BlueMageHelper
                 return;
             }
 
-            ImGui.SetNextWindowSize(new Vector2(290, 75), ImGuiCond.Always);
+            ImGui.SetNextWindowSize(new Vector2(290, 150), ImGuiCond.Always);
             if (ImGui.Begin("Blue Mage Helper Configuration", ref this.settingsVisible,
                 ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
             {
@@ -64,6 +65,17 @@ namespace BlueMageHelper
                     this.configuration.show_hint_even_if_unlocked = configValue;
                     // can save immediately on change, if you don't want to provide a "Save and Close" button
                     this.configuration.Save();
+                }
+
+                ImGui.Text("Did this plugin help?");
+                ImGui.SameLine();
+                if (ImGui.Button("Donate"))
+                {
+                    System.Diagnostics.Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "https://ko-fi.com/sl0nderman",
+                        UseShellExecute = true
+                    });
                 }
             }
             ImGui.End();
