@@ -54,7 +54,7 @@ namespace BlueMageHelper
                 return;
             }
 
-            ImGui.SetNextWindowSize(new Vector2(290, 150), ImGuiCond.Always);
+            ImGui.SetNextWindowSize(new Vector2(290, 90), ImGuiCond.Always);
             if (ImGui.Begin("Blue Mage Helper Configuration", ref this.settingsVisible,
                 ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse))
             {
@@ -69,7 +69,7 @@ namespace BlueMageHelper
 
                 ImGui.Text("Did this plugin help?");
                 ImGui.SameLine();
-                if (ImGui.Button("Donate"))
+                if (ImGui.Button("Consinder Donating"))
                 {
                     System.Diagnostics.Process.Start(new ProcessStartInfo
                     {
