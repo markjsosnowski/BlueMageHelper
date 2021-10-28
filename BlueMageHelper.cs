@@ -81,7 +81,7 @@ namespace BlueMageHelper
             catch (OperationCanceledException) { }
             catch (Exception e)
             {
-                PluginLog.Error("Blue Mage Helper has encountered a fatal error!", e);
+                PluginLog.Verbose("Blue Mage Helper caught an exception: "+ e);
             }
         }
 
