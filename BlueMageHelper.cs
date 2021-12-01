@@ -107,11 +107,13 @@ namespace BlueMageHelper
             #pragma warning restore CS8602 // Dereference of a possibly null reference.
             hint_text = get_hint_text(spell_number_string);
             empty_textnode->ResizeNodeForCurrentText();
+            //TODO if there is already text in the box, append a new line instead
             empty_textnode->SetText(hint_text);
 
             empty_textnode->AtkResNode.ToggleVisibility(true);
         }
 
+        //TODO use monster IDs and perform a sheets lookup
         private string get_hint_text(string spell_number)
         {
             if (this.spell_sources.ContainsKey(spell_number))
