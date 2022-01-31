@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 namespace BlueMageHelper
 {
@@ -36,6 +37,7 @@ namespace BlueMageHelper
         private const int spell_number_textnode_index = 62;
         private const int spell_name_textnode_index = 61;
         private const string sources_list_url = "https://markjsosnowski.github.io/FFXIV/spell_sources.json";
+        private const int expected_nodelistcount = 4;
 
         public BlueMageHelper(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
@@ -64,7 +66,7 @@ namespace BlueMageHelper
             }
             catch (WebException e)
             {
-                PluginLog.Error("There was a problem accessing the bait list. Is GitHub down?", e);
+                PluginLog.Error("There was a problem accessing the spell list. Is GitHub down?", e);
                 this.spell_sources = null;
             }
         }
@@ -87,10 +89,12 @@ namespace BlueMageHelper
 
         private unsafe void spellbook_writer(IntPtr addon_ptr)
         {
-            string spell_number_string = "#0";
+            string spell_number_string = string.Empty;
             string hint_text;
             //AddonAOZNotebook* spellbook_addon = (AddonAOZNotebook*)addon_ptr;
             AtkUnitBase* spellbook_base_node = (AtkUnitBase*)addon_ptr;
+            if (spellbook_base_node->UldManager.NodeListCount < spell_number_textnode_index + 1)
+                return;
             AtkTextNode* spell_name_textnode = (AtkTextNode*)spellbook_base_node->UldManager.NodeList[spell_name_textnode_index];
             #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             string spell_name = Marshal.PtrToStringAnsi(new IntPtr(spell_name_textnode->NodeText.StringPtr));
@@ -101,9 +105,10 @@ namespace BlueMageHelper
             AtkTextNode* spell_number_textnode = (AtkTextNode*)spellbook_base_node->UldManager.NodeList[spell_number_textnode_index];
             #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             spell_number_string = Marshal.PtrToStringAnsi(new IntPtr(spell_number_textnode->NodeText.StringPtr));
-            #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
-            #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            spell_number_string = spell_number_string.Substring(1); // Remove the # from the spell number
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            spell_number_string = extract_spell_number(spell_number_string);
+            //spell_number_string = spell_number_string.Substring(1); // Remove the # from the spell number
             #pragma warning restore CS8602 // Dereference of a possibly null reference.
             hint_text = get_hint_text(spell_number_string);
             empty_textnode->ResizeNodeForCurrentText();
@@ -111,6 +116,29 @@ namespace BlueMageHelper
             empty_textnode->SetText(hint_text);
 
             empty_textnode->AtkResNode.ToggleVisibility(true);
+        }
+
+        /* Works if the blue mmage spellbook is already open. crashes if trying to open the spellbook from a closed state.
+         * 2021-12-01 17:10:34.247 -05:00 [DBG] [BlueMageHelper] Extracted  from 
+         * Not sure how it's getting an empty string if i'm checking for that to exist
+         * Also not sure where it's crashing even if it's an empty string??
+         */
+        private string extract_spell_number(string spell_number_string)
+        {
+            try
+            {
+                Regex spell_number_regex = new Regex(@"\d+");
+                Match regex_match = spell_number_regex.Match(spell_number_string);
+                string spell_number = regex_match.Value;
+                PluginLog.Debug("Extracted " + regex_match.Value + " from " + spell_number_string);
+                return spell_number;
+            }
+            catch(Exception e)
+            {
+                PluginLog.Debug("Exception was caught in the extract_spell_number function" + e);
+                return "1";
+            }
+
         }
 
         //TODO use monster IDs and perform a sheets lookup

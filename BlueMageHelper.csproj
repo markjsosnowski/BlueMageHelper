@@ -5,7 +5,7 @@
 		<LangVersion>latest</LangVersion>
 		<PackageId>BlueMageHelper</PackageId>
 		<Authors>Sl0nderman</Authors>
-		<Version>1.0</Version>
+		<Version>1.1</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -26,7 +26,7 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
-        <PackageReference Include="DalamudPackager" Version="2.1.4" />
+        <PackageReference Include="DalamudPackager" Version="2.1.5" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 

@@ -69,7 +69,7 @@ namespace BlueMageHelper
 
                 ImGui.Text("Did this plugin help?");
                 ImGui.SameLine();
-                if (ImGui.Button("Consinder Donating"))
+                if (ImGui.Button("Consider Donating"))
                 {
                     System.Diagnostics.Process.Start(new ProcessStartInfo
                     {
