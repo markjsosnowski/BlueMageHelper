@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<TargetFramework>net5.0-windows</TargetFramework>
 		<LangVersion>latest</LangVersion>
-		<PackageId>BlueMageHelper</PackageId>
-		<Authors>Sl0nderman</Authors>
+		<PackageId>BlueMageHelper_Endwalker</PackageId>
+		<Authors>Isolraine</Authors>
 		<Version>1.0</Version>
 	</PropertyGroup>
 

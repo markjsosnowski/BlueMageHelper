@@ -1,11 +1,11 @@
 {
-  "Author": "Sl0nderman",
-  "Name": "Blue Mage Helper",
+  "Author": "Isolraine",
+  "Name": "Blue Mage Helper - Endwalker",
   "InternalName": "BlueMageHelper",
   "AssemblyVersion": "1.0.0.0",
   "Description": "Adds monster names and coordinates to the \"Where to Learn\" section of your blue mage spellbook.",
   "ApplicableVersion": "any",
-  "RepoUrl": "https://github.com/markjsosnowski/BlueMageHelper",
+  "RepoUrl": "https://github.com/IsolatedRainbow/BlueMageHelper",
   "Tags": [
     "spells",
     "spellbook",
@@ -14,8 +14,8 @@
   "CategoryTags": [
     "jobs"
   ],
-  "DalamudApiLevel": 4,
+  "DalamudApiLevel": 5,
   "LoadPriority": 0,
-  "IconUrl": "https://raw.githubusercontent.com/markjsosnowski/BlueMageHelper/master/icon.png",
+  "IconUrl": "https://github.com/IsolatedRainbow/BlueMageHelper/blob/master/icon.png",
   "Punchline": "Helps you fill our your Blue Mage Spellbook"
 }

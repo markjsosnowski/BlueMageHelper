@@ -35,7 +35,7 @@ namespace BlueMageHelper
         private const int blank_text_textnode_index = 54;
         private const int spell_number_textnode_index = 62;
         private const int spell_name_textnode_index = 61;
-        private const string sources_list_url = "https://markjsosnowski.github.io/FFXIV/spell_sources.json";
+        private const string sources_list_url = "https://raw.githubusercontent.com/IsolatedRainbow/BlueMageHelper/master/spell_sources.json";
 
         public BlueMageHelper(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
