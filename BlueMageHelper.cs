@@ -107,8 +107,8 @@ namespace BlueMageHelper
             spell_number_string = Marshal.PtrToStringAnsi(new IntPtr(spell_number_textnode->NodeText.StringPtr));
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            spell_number_string = extract_spell_number(spell_number_string);
-            //spell_number_string = spell_number_string.Substring(1); // Remove the # from the spell number
+            //spell_number_string = extract_spell_number(spell_number_string);
+            spell_number_string = spell_number_string.Substring(1); // Remove the # from the spell number
             #pragma warning restore CS8602 // Dereference of a possibly null reference.
             hint_text = get_hint_text(spell_number_string);
             empty_textnode->ResizeNodeForCurrentText();
@@ -123,7 +123,7 @@ namespace BlueMageHelper
          * Not sure how it's getting an empty string if i'm checking for that to exist
          * Also not sure where it's crashing even if it's an empty string??
          */
-        private string extract_spell_number(string spell_number_string)
+        /*private string extract_spell_number(string spell_number_string)
         {
             try
             {
@@ -138,8 +138,8 @@ namespace BlueMageHelper
                 PluginLog.Debug("Exception was caught in the extract_spell_number function" + e);
                 return "1";
             }
-
-        }
+        
+        }*/
 
         //TODO use monster IDs and perform a sheets lookup
         private string get_hint_text(string spell_number)
